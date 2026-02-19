@@ -18,6 +18,8 @@ print("CHANNEL:", CHANNEL_ID)
 
 
 intents = discord.Intents.default()
+intents.message_content = True
+
 client = discord.Client(intents=intents)
 
 seen = set()
@@ -53,7 +55,8 @@ async def on_ready():
 
 async def loop():
     await client.wait_until_ready()
-    channel = client.get_channel(CHANNEL_ID)
+    channel = await client.fetch_channel(int(CHANNEL_ID))
+
 
     global last_tweet
 
