@@ -10,11 +10,12 @@ last_tweet = None
 
 load_dotenv()
 
-TOKEN = os.getenv("DISCORD_TOKEN")
-CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
-API_KEY = os.getenv("SPORTSDATA_API_KEY")
+TOKEN = os.getenv("TOKEN")
+CHANNEL_ID = os.getenv("CHANNEL_ID")  # temporarily remove int()
 
-print("API KEY:", API_KEY)
+print("TOKEN:", TOKEN)
+print("CHANNEL:", CHANNEL_ID)
+
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
